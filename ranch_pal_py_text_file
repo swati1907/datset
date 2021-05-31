@@ -1,0 +1,18 @@
+import pandas as pd
+import numpy as np
+import time
+df=pd.read_csv("sample-data.csv")
+print(df)
+df["Local_time"]=[time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(x)) for x in df["time"].values ]
+df["Label"]=[None for i in range(df.shape[0])]
+print("DATAFRAME AFTER CHANGING TIME AND ADDING LABEL COLUMN")
+print(df)
+while (True):
+    try:
+        cell,label=map(int,input("Enter cell number(ranging 0 to 10454) and label(ranging 1 to 9) and press enter ").split())
+        df.iloc[cell,11]=label
+    except:
+        print("Thank You!")
+        break
+print("REQUIRED DATASET")
+print(df)
