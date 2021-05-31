@@ -9,8 +9,10 @@ print("DATAFRAME AFTER CHANGING TIME AND ADDING LABEL COLUMN")
 print(df)
 while (True):
     try:
-        cell,label=map(int,input("Enter cell number(ranging 0 to 10454) and label(ranging 1 to 9) and press enter ").split())
-        df.iloc[cell,11]=label
+        cell1,cell2=map(int,input("Enter cell1(ranging 0 to 10454) and cell2(greater than cell1) and press enter ").split())
+        label=int(input("Enter the label(ranging 1 to 9) which you want to fit between cell1 and cell2 and press enter "))
+        
+        df.iloc[cell1:cell2+1,11]=label
     except:
         print("Thank You!")
         break
